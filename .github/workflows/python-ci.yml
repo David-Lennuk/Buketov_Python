@@ -1,23 +1,21 @@
-# This is a basic workflow to help you get started with Actions
+name: Python CI  # See on töövoo (workflow) nimi, mida näed GitHubi Actions vaates
 
-name: CI
+on: [push]  # Töövoog käivitub iga kord, kui tehakse push (koodi üleslaadimine) GitHubi
 
-# Controls when the workflow will run
-on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  build:  # Töö nimega "build"
+    runs-on: ubuntu-latest  # GitHub loob virtuaalmasina, kus töö käivitatakse (Ubuntu Linux)
 
-      - name: Pythoni Installimine
-        uses: actions/setup-python@v2
+    steps:  # Siin on kõik sammud, mida GitHub teeb järjest
+      - uses: actions/checkout@v2  # Laeb sinu projekti koodi GitHubi repositooriumist virtuaalmasinasse
+
+      - name: Paigalda Python
+        uses: actions/setup-python@v2  # Kasutab ametlikku GitHubi action'it Python'i paigaldamiseks
         with:
-          python-version: 3.9
-      - name: Paigaldata soluvusd
-        run: pip install pytest
+          python-version: 3.9  # Määrab, millist Python versiooni kasutatakse (näiteks 3.9)
 
-      - name: käivitada teestid
-        run: pytest
-      
-        
+      - name: Paigalda sõltuvused
+        run: pip install pytest  # Käivitab käsu, mis paigaldab testimiseks vajaliku pytest'i
+
+      - name: Käivita testid
+        run: pytest  # Käivitab kõik testid failidest, mille nimi algab test_ ja sisaldab testfunktsioone
