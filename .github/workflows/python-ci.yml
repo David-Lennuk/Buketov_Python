@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Pyhtoni Installimine
-        uses: actions/setup-pyhton@v2
+      - name: Pythoni Installimine
+        uses: actions/setup-python@v2
         with:
           python-version: 3.9
       - name: Paigaldata soluvusd
