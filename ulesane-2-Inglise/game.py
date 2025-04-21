@@ -27,12 +27,12 @@ def rest():
     player["hours_left"] -= 1
 
 def explore():
-    print("🚶 Sa liigud edasi...")
+    print(" Sa liigud edasi...")
     player["energy"] -= 30
     player["hours_left"] -= 1
 
 def skip_time():
-    print("🕰️ Sa otsustasid lihtsalt oodata...")
+    print(" Sa otsustasid lihtsalt oodata...")
     player["energy"] -= 5
     player["hours_left"] -= 1
 
