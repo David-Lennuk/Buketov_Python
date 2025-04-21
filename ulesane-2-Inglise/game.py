@@ -9,20 +9,20 @@ player = {
 }
 
 def show_status():
-    print("\n🧍 Mängija seisund:")
-    print(f"❤️ Tervis: {player['health']}")
-    print(f"⚡ Energia: {player['energy']}")
-    print(f"🍖 Toidukogus: {player['food']}")
-    print(f"🕒 Allesjäänud aeg: {player['hours_left']}h\n")
+    print("\n Mängija seisund:")
+    print(f" Tervis: {player['health']}")
+    print(f" Energia: {player['energy']}")
+    print(f" Toidukogus: {player['food']}")
+    print(f" Allesjäänud aeg: {player['hours_left']}h\n")
 
 def rest():
     if player["food"] > 0:
-        print("🥣 Sa puhkasid ja sõid veidi toitu.")
+        print(" Sa puhkasid ja sõid veidi toitu.")
         player["energy"] += 20
         player["health"] += 10
         player["food"] -= 1
     else:
-        print("🚫 Sul pole piisavalt toitu!")
+        print(" Sul pole piisavalt toitu!")
         player["energy"] -= 10
     player["hours_left"] -= 1
 
@@ -39,7 +39,7 @@ def skip_time():
 def game_loop():
     while player["hours_left"] > 0 and player["health"] > 0:
         show_status()
-        print("💬 Mida soovid teha?")
+        print(" Mida soovid teha?")
         print("1. Puhka ja söö")
         print("2. Uuri ümbrust")
         print("3. Oota")
@@ -52,18 +52,18 @@ def game_loop():
         elif choice == "3":
             skip_time()
         else:
-            print("❗ Vigane valik!")
+            print(" Vigane valik!")
 
         if player["energy"] <= 0:
-            print("😴 Sul sai energia otsa! Kaotad tervist.")
+            print(" Sul sai energia otsa! Kaotad tervist.")
             player["health"] -= 20
             player["energy"] = 0
 
     if player["health"] <= 0:
-        print("💀 Sa surid. Sundöö sai sulle saatuslikuks.")
+        print(" Sa surid. Sundöö sai sulle saatuslikuks.")
     else:
-        print("🌅 Sa elasid Sundöö üle! Tubli töö!")
+        print(" Sa elasid Sundöö üle! Tubli töö!")
 
 if __name__ == "__main__":
-    print("🌘 Tere tulemast mängu: SUNDÖÖ – Ela 12 tundi!")
+    print(" Tere tulemast mängu: SUNDÖÖ – Ela 12 tundi!")
     game_loop()
